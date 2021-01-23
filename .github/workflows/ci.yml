@@ -37,7 +37,6 @@ jobs:
         name: Build & push Docker image
         with:
           image: yehiaafaroukk/my-webapp2
-          tags:  latest
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
