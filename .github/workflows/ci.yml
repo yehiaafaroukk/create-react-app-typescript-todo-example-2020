@@ -40,8 +40,14 @@ jobs:
           file: ./Dockerfile
           load: true
           tags: myimage:latest
-    
+          repository: test-image
+
       - name: Inspect
         run: |
           docker image inspect myimage:latest 
+      
+      - uses: addnab/docker-run-action@v1
+        with:
+          image: test-image:latest
+          run: echo "hello world"     
           
