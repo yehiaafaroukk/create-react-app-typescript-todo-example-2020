@@ -16,7 +16,7 @@ COPY ./*.css /usr/share/nginx/html
 COPY ./*.js /usr/share/nginx/html
 COPY ./*.png /usr/share/nginx/html
 
-RUN rm /etc/nginx/nginx/conf.d/default.conf
+RUN rm /etc/nginx/nginx/conf.d
 COPY nginx/nginx.conf /etc/nginx/conf.d
 
 #fire nginx
