@@ -2,7 +2,7 @@
 FROM node:13.12.0-alpine
 
 WORKDIR /app
-COPY . ./app/
+COPY . /app/
 
 #prepare build
 RUN npm install
