@@ -21,4 +21,7 @@ COPY nginx/nginx.conf /etc/nginx/conf.d
 
 #fire nginx
 EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+CMD service nginx start
+
+#CMD ["nginx","-g","daemon off;"]
