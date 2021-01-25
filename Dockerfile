@@ -9,8 +9,9 @@ RUN npm install
 RUN npm run build
 
 #prepare nginx
-FROM nginx:1.16.0-alpine
-COPY ./index.html /usr/share/nginx/html
+FROM nginx:1.16.0-alpine as build-stage
+#COPY ./index.html /usr/share/nginx/html
+COPY --from=build-stage /app/build/ /usr/share/nginx/html
 #COPY ./*.css /usr/share/nginx/html
 #COPY ./*.js /usr/share/nginx/html
 #COPY ./*.png /usr/share/nginx/html
