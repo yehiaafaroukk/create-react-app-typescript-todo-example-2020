@@ -1,5 +1,5 @@
 
-FROM node:13.12.0-alpine
+FROM node:13.12.0-alpine as build
 
 WORKDIR /app
 COPY . /app/
@@ -11,7 +11,7 @@ RUN npm run build
 #prepare nginx
 FROM nginx:1.16.0-alpine as build-stage
 #COPY ./index.html /usr/share/nginx/html
-COPY --from=build-stage /app/build/ /usr/share/nginx/html
+COPY --from=build /app/build/ /usr/share/nginx/html
 #COPY ./*.css /usr/share/nginx/html
 #COPY ./*.js /usr/share/nginx/html
 #COPY ./*.png /usr/share/nginx/html
