@@ -17,18 +17,18 @@ jobs:
           node-version: '14'
       - run: yarn install
       - run: yarn build
-      #- run: yarn test
-      #- run: yarn lint
-      #- run: yarn typecheck
-      #- uses: cypress-io/github-action@v2
-        #with:
-          #start: yarn start
-          #wait-on: 'http://localhost:3000'
-          # the entire command will automatically be prefixed with "npm"
-          # and we need the second "npm" to execute "cypress run ..." command line
+      - run: yarn test
+      - run: yarn lint
+      - run: yarn typecheck
+      - uses: cypress-io/github-action@v2
+        with:
+          start: yarn start
+          wait-on: 'http://localhost:3000'
+           #the entire command will automatically be prefixed with "npm"
+           #and we need the second "npm" to execute "cypress run ..." command line
           #command-prefix: 'percy exec -- npx'
-        #env:
-          #PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
 
      
@@ -49,7 +49,11 @@ jobs:
           load: true
           tags: myimage:latest         
      
-
+      - name: Archive code artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact-result
+          path: artifacts
 
           
           
