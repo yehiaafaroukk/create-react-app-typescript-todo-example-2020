@@ -31,6 +31,9 @@ jobs:
     steps: 
       - uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
       - uses: actions/setup-node@v2-beta 
+        with:
+          node-version: '14'
+      - run: yarn install
       - run: yarn run test --ci --coverage --reporters=default --reporters=jest-junit
       - run: ls 
       
@@ -53,6 +56,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
       - uses: actions/setup-node@v2-beta 
+        with:
+          node-version: '14'
+      - run: yarn install
       - run: yarn lint
       - run: yarn typecheck
   
