@@ -93,9 +93,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [unit-testing,lintters-testing,E2E-testing]
     steps:     
-      - name: Set up Docker Buildx
       - uses: actions/checkout@v2 
-      - uses: docker/setup-buildx-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
       
       - name: Build
         uses: docker/build-push-action@v2
