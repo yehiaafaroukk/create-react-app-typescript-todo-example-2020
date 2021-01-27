@@ -1,5 +1,5 @@
 {
-  "video": false,
+  "video": true,
   "experimentalComponentTesting": true,
   "experimentalFetchPolyfill": true,
   "componentFolder": "cypress/unit"
