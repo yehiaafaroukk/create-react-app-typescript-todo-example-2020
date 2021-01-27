@@ -84,6 +84,9 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+          
+      - run: ls 
+      - run: ls cypress
       
       
 
