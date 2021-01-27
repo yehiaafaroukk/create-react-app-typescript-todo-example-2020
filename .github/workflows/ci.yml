@@ -17,6 +17,7 @@ jobs:
           node-version: '14'
       - run: yarn install
       - run: yarn build
+      - run: yarn add --dev jest-junit
       - run: yarn test --coverage
       - run: ls coverage
 
