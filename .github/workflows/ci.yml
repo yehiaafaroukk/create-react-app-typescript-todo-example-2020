@@ -19,8 +19,8 @@ jobs:
       - run: yarn build
       - run: yarn add --dev jest-junit
       - run: yarn test --coverage
-      - run: yarn run test --ci --coverage --reporters=default --reporters=jest-junit
-      - run: yarn run test --ci --coverage --testResultsProcessor=jest-junit
+      #- run: yarn run test --ci --coverage --reporters=default --reporters=jest-junit
+      #- run: yarn run test --ci --coverage --testResultsProcessor=jest-junit
       - run: ls coverage
       - run: ls 
 
@@ -54,7 +54,7 @@ jobs:
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: coverage/clover.xml
+          files: junit.xml
       #- name: Login to DockerHub
        # uses: docker/login-action@v1
         #with:
