@@ -18,28 +18,45 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
-      - run: yarn lint
-      - run: yarn typecheck
-      - uses: cypress-io/github-action@v2
-        with:
-          start: yarn start
-          wait-on: 'http://localhost:3000'
+      #- run: yarn lint
+     # - run: yarn typecheck
+    #  - uses: cypress-io/github-action@v2
+      #  with:
+       #   start: yarn start
+        #  wait-on: 'http://localhost:3000'
            #the entire command will automatically be prefixed with "npm"
            #and we need the second "npm" to execute "cypress run ..." command line
           #command-prefix: 'percy exec -- npx'
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+       # env:
+        #  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       
       
-      - name: Archive production artifacts
+      - name: Archive build artifacts1
         uses: actions/upload-artifact@v2
         with:
-          name: dist-without-markdown
-          path: |
-            dist
-            !dist/**/*.md
-
-     
+          name: build-artifact1
+          path: build
+          
+      - name: Archive build artifacts2
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact2
+          path: index.html
+          
+      - name: Archive build artifacts3
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact3
+          path: build/index.html    
+          
+          
+          
+      - name: Archive build artifacts4
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact4
+          path: dist/index.html          
+      
       #- name: Login to DockerHub
        # uses: docker/login-action@v1
         #with:
