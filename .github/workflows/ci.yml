@@ -49,8 +49,8 @@ jobs:
         uses: IgnusG/jest-report-action@v2.3.3
         if: always()
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: coverage/clover.xml
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          junit-file: coverage/clover.xml
       #- name: Login to DockerHub
        # uses: docker/login-action@v1
         #with:
