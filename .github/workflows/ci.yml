@@ -29,7 +29,15 @@ jobs:
           #command-prefix: 'percy exec -- npx'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-
+      
+      
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: |
+            dist
+            !dist/**/*.md
 
      
       #- name: Login to DockerHub
@@ -78,8 +86,8 @@ jobs:
           #path: |
            # dist
           #  !dist/**/*.md
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v2
-        with:
-          name: code-coverage-report
-          path: **/*.xml
+    #  - name: Archive code coverage results
+   #     uses: actions/upload-artifact@v2
+  #      with:
+ #         name: code-coverage-report
+#          path: **/*.xml
