@@ -46,7 +46,7 @@ jobs:
           path: coverage
             
       - name: Publish Unit Test Results
-      - uses: IgnusG/jest-report-action@v{ current version }
+        uses: IgnusG/jest-report-action@v{ current version }
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
