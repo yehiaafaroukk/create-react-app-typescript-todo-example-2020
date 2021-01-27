@@ -17,15 +17,15 @@ jobs:
           node-version: '14'
       - run: yarn install
       - run: yarn build
-      - run: yarn add --dev jest-junit
-      - run: ls 
-      - run: yarn test --coverage
-      - run: ls 
+     # - run: yarn add --dev jest-junit
+      #- run: ls 
+      #- run: yarn test --coverage
+      #- run: ls 
       - run: yarn run test --ci --coverage --reporters=default --reporters=jest-junit
       - run: ls 
-      - run: yarn run test --ci --coverage --testResultsProcessor=jest-junit
-      - run: ls coverage
-      - run: ls 
+      #- run: yarn run test --ci --coverage --testResultsProcessor=jest-junit
+      #- run: ls coverage
+      #- run: ls 
 
       #- run: yarn lint
      # - run: yarn typecheck
