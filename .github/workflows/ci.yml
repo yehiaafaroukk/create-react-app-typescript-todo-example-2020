@@ -50,10 +50,11 @@ jobs:
           tags: myimage:latest         
     
     
-      - name: Checkout the repository
-        uses: actions/checkout@master
-      - name: Generate the artifacts
+      - uses: actions/checkout@master
+      - name: Generate
         uses: skx/github-action-build@master
+        with:
+          builder: .github/build
       
       
       - name: Upload the artifacts
@@ -62,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           releaseId: ${{ needs.create_release.outputs.id }}
-          args: '*.bin'
+          args: .github/build
     
     
     
