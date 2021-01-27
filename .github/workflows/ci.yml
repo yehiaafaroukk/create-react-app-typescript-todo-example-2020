@@ -49,12 +49,7 @@ jobs:
           load: true
           tags: myimage:latest         
     
-    
-      - uses: actions/checkout@master
-      - name: Generate
-        uses: skx/github-action-build@master
-        with:
-          builder: build
+
       
       
       - name: Upload the artifacts
@@ -63,7 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           releaseId: ${{ needs.create_release.outputs.id }}
-          args: build
+          args: build/*.bin
     
     
     
