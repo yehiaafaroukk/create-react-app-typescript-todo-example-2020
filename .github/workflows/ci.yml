@@ -17,14 +17,8 @@ jobs:
           node-version: '14'
       - run: yarn install
       - run: yarn build
-      - run: yarn test --collectCoverage
-      - run: cd coverage
-      - run: ls
-
       - run: yarn test --coverage
-
-      - run: cd coverage
-      - run: ls
+      - run: ls coverage
 
       #- run: yarn lint
      # - run: yarn typecheck
@@ -44,26 +38,7 @@ jobs:
         with:
           name: build-artifact1
           path: build
-          
-      - name: Archive build artifacts2
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifact2
-          path: index.html
-          
-      - name: Archive build artifacts3
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifact3
-          path: build/index.html    
-          
-          
-          
-      - name: Archive build artifacts4
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifact4
-          path: dist/index.html          
+            
       
       #- name: Login to DockerHub
        # uses: docker/login-action@v1
