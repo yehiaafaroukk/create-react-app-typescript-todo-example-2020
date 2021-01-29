@@ -122,7 +122,7 @@ jobs:
         with:
           remote_docker_host: yehia@yehia-hostmachine
           ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-          remote_docker_port: 8080 
+          #remote_docker_port: 8080 
           deployment_mode: docker-swarm
           args:  yehiaafaroukk/create-react-app-typescript-todo-example-2020
 
