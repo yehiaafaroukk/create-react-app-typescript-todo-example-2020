@@ -121,7 +121,7 @@ jobs:
       - uses: wshihadeh/docker-deployment-action@v1
         with:
           remote_docker_host: yehia@yehia-hostmachine
-          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          ssh_public_key: ${{ DOCKER_SSH_PUBLIC_KEY }}
           remote_docker_port: 8080 
           deployment_mode: docker-swarm
           args:  yehiaafaroukk/create-react-app-typescript-todo-example-2020
