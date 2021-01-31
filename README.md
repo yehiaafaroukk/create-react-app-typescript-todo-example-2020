@@ -70,18 +70,23 @@ A gif showing E2E testing while running cypress.
 
 ![cypress_open](images/cypress_open.gif)
 
-### `Build as a docker image and Push to docker Hub`
+### `Build as a docker image and run`
 ```
+docker build - < Dockerfile -t myimage
+docker run -p 8080:80 myimage 
 
-
-
+---> you can give a different name and different host port instead of 8080
+but this is a manual step but actually in the flow i used github action for build and push then all i have to do to pull it from docker hub and run it locally as in the next section :
 
 
 ### `pulling latest Docker image pushed in my Docker Hub repo and running it separately.. the image name is : my-webapp2 ... tag :latest `
 
-docker pull yehiaafaroukk/my-webapp2
+### docker pull yehiaafaroukk/my-webapp2
+
 container exposed port is 80
+
 And any local host port --> I picked 8080
-docker run -d -p 8080:80 yehiaafaroukk/my-webapp2
+
+### docker run -d -p 8080:80 yehiaafaroukk/my-webapp2
 
 
