@@ -50,24 +50,25 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           files: junit.xml
   
-  lintters-formatters-testing:
+  lintters-formatters-typecheck-testing:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+      - uses: actions/checkout@v2  
       - uses: actions/setup-node@v2-beta 
         with:
           node-version: '14'
       - run: yarn install
       - run: yarn lint
       - run: yarn typecheck
-  
+      - run: yarn prettier
+
   
   E2E-testing:
     runs-on: ubuntu-latest
     needs: build
     steps:  
-      - uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+      - uses: actions/checkout@v2 
       - uses: actions/setup-node@v2-beta 
       - uses: cypress-io/github-action@v2
         with:
@@ -87,17 +88,10 @@ jobs:
 
       
 
-      
-
-      #- name: Login to DockerHub
-       # uses: docker/login-action@v1
-        #with:
-         #username: ${{ secrets.DOCKERHUB_USERNAME }}
-         #password: ${{ secrets.DOCKERHUB_TOKEN }}
            
   Docker-build-push:         
     runs-on: ubuntu-latest
-    needs: [unit-testing,lintters-formatters-testing,E2E-testing]
+    needs: [unit-testing,lintters-formatters-typecheck-testing,E2E-testing]
     steps:     
       - uses: actions/checkout@v2 
       - name: Set up Docker Buildx
@@ -110,17 +104,6 @@ jobs:
           file: ./Dockerfile
           load: true
           tags: myimage:latest         
-    
-#  Deployment:
- #   runs-on: ubuntu-latest
-  #  needs: Docker-build-push
-   # steps:
-    #  - uses: wshihadeh/docker-deployment-action@v1
-     #   with:
-      #    remote_docker_host: yehia@yehia-hostmachine
-       #   ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-          #remote_docker_port: 8080  
-        #  deployment_mode: docker-swarm
-         # args:  yehiaafaroukk/create-react-app-typescript-todo-example-2020
+
 
   
