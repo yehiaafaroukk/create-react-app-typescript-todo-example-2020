@@ -85,7 +85,7 @@ but this is a manual step but actually in the flow i used github action for buil
 
 container exposed port is 80
 
-And any local host port --> I picked 8080
+And any available local host port --> I picked 8080
 
 ### docker run -d -p 8080:80 yehiaafaroukk/my-webapp2
 
