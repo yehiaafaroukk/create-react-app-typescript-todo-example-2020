@@ -10,7 +10,7 @@ This is a [Create React App] based on [React](https://reactjs.org/) + [TypeScrip
 
 ###  Preparation
 
-- Install `Node.js` newer than `10.16.3 LTS`(recommend newer than v14.8.0).
+- Install `Node.js` newer than `10.16.3 LTS`
   If you have not it yet, follow https://nodejs.org/en/download/
 
 **And then**
@@ -21,8 +21,6 @@ cd create-react-app-typescript-todo-example-2020
 yarn install   to install dependencies in package.json file
 yarn start     to run project locally
 ```
-
-**Finally Edit Code** 😎
 
 ## 👩‍💻 Usage
 
@@ -49,9 +47,10 @@ serve -s build
 
 ### `yarn typecheck`
 
-While developing and building, Babel stop transpile with TS error messages.
-I can't find way static typecheck with babel,
-so I'm using original TypeScript via npm and specified `tsc --noEmit` compile option that doesn't generate compiled code.
+To run type checks
+
+### `yarn prettier`
+To run formaters using prettier
 
 ### `yarn test`
 To conver Unit testing using jest.
@@ -78,9 +77,9 @@ A gif showing E2E testing while running cypress.
 
 
 
-### pulling latest Docker image pushed in my Docker Hub repo and running it separately.. the image name is : my-webapp2 ... tag :latest
+### `pulling latest Docker image pushed in my Docker Hub repo and running it separately.. the image name is : my-webapp2 ... tag :latest `
 
-docker pull yehiaafaroukk/my-webapp2:latest
+docker pull yehiaafaroukk/my-webapp2
 container exposed port is 80
 And any local host port --> I picked 8080
 docker run -d -p 8080:80 yehiaafaroukk/my-webapp2
